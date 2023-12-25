@@ -71,8 +71,8 @@ public class UserView {
                     ", 비밀번호: " + user.password() +
                     ", 가입날짜: " + user.regDate() +
                     ", 주문메뉴: " + menuListString +
-                    ", 충전시간: " + user.chargingTime() +
-                    ", 지불금액: " + user.totalPrice());
+                    ", 충전시간: " + user.chargingTime() + "시간" +
+                    ", 지불금액: " + user.totalPrice() + "원");
         }
         System.out.println("--------------------------");
     }

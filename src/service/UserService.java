@@ -67,8 +67,8 @@ public class UserService {
 //
 //    // 유저 시간 추가
 //    public void addTimeToUser(String userEmail, Integer chargingTime) {
-//        if (chargingTime % 60 != 0) {
-//            throw new IllegalArgumentException("시간은 60분 단위로만 추가할 수 있습니다.");
+//        if (chargingTime % 1 != 0) {
+//            throw new IllegalArgumentException("시간은 1시간 단위로만 추가할 수 있습니다.");
 //        }
 //
 //        users.stream()
