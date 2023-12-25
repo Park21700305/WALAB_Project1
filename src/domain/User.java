@@ -1,28 +1,22 @@
 package domain;
 
+import lombok.*;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public record User(
-        String email,
-        String password,
-        String name,
-        LocalDateTime regDate,
-        List<MenuOrder> menuOrders,
-        Integer chargingTime,
-        Integer totalPrice
-) {
-    // 정적 팩토리 메소드
-    public static User createUser(String email, String password, String name) {
-        return new User(
-                email,
-                password,
-                name,
-                LocalDateTime.now(),
-                new ArrayList<MenuOrder>(),
-                0, // 사용 시간 초기값
-                0  // 가격 초기값
-        );
-    }
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class User {
+    private String email;
+    private String password;
+    private String name;
+    private LocalDateTime regDate = LocalDateTime.now();
+    private List<MenuOrder> menuOrders = new ArrayList<>();
+    private Integer chargingTime = 0;
+    private Integer totalPrice = 0;
 }

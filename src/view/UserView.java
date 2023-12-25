@@ -59,24 +59,37 @@ public class UserView {
         System.out.println("--------------------------");
     }
 
-    public void ListAllUsers() {
+    public void listAllUsers() {
         System.out.println("-----------회원목록-----------");
-        for (User user : userService.listAllUsers()) {
-            String menuListString = user.menuOrders().stream()
-                    .map(menuOrder -> menuOrder.getMenu().getMenuName() + " " + menuOrder.getQuantity() + "개")
-                    .collect(Collectors.joining(", "));
-
-            System.out.println("이름: " + user.name() +
-                    ", 이메일: " + user.email() +
-                    ", 비밀번호: " + user.password() +
-                    ", 가입날짜: " + user.regDate() +
-                    ", 주문메뉴: " + menuListString +
-                    ", 충전시간: " + user.chargingTime() + "시간" +
-                    ", 지불금액: " + user.totalPrice() + "원");
-        }
+        userService.listAllUsers().forEach(user ->
+                System.out.println("이메일: " + user.getEmail() + " 이름: " + user.getName()));
         System.out.println("--------------------------");
     }
 
+    public void viewUserDetails(String email) {
+        User user = userService.listAllUsers().stream()
+                .filter(u -> u.getEmail().equals(email))
+                .findFirst()
+                .orElse(null);
+
+        if (user == null) {
+            System.out.println("유저를 찾을 수 없습니다.");
+        } else {
+            System.out.println("-----------유저 정보-----------");
+            System.out.println("이메일: " + user.getEmail());
+            System.out.println("이름: " + user.getName());
+            System.out.println("가입날짜: " + user.getRegDate());
+            System.out.println("총 충전시간: " + user.getChargingTime() + "분");
+            System.out.println("총 지불금액: " + user.getTotalPrice() + "원");
+            System.out.println("주문한 메뉴: ");
+            user.getMenuOrders().forEach(menuOrder ->
+                    System.out.println(menuOrder.getMenu().getMenuName() + " x " +
+                            menuOrder.getQuantity() + " (" +
+                            menuOrder.getMenu().getPrice() * menuOrder.getQuantity() + "원)")
+            );
+            System.out.println("-------------------------------");
+        }
+    }
 
 
 }
