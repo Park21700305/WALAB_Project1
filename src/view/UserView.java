@@ -62,8 +62,8 @@ public class UserView {
     public void ListAllUsers() {
         System.out.println("-----------회원목록-----------");
         for (User user : userService.listAllUsers()) {
-            String menuListString = user.menuList().stream()
-                    .map(menu -> menu.menuName())
+            String menuListString = user.menuOrders().stream()
+                    .map(menuOrder -> menuOrder.getMenu().getMenuName() + " " + menuOrder.getQuantity() + "개")
                     .collect(Collectors.joining(", "));
 
             System.out.println("이름: " + user.name() +

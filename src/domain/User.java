@@ -9,7 +9,7 @@ public record User(
         String password,
         String name,
         LocalDateTime regDate,
-        List<Menu> menuList,
+        List<MenuOrder> menuOrders,
         Integer chargingTime,
         Integer totalPrice
 ) {
@@ -20,7 +20,7 @@ public record User(
                 password,
                 name,
                 LocalDateTime.now(),
-                new ArrayList<>(),
+                new ArrayList<MenuOrder>(),
                 0, // 사용 시간 초기값
                 0  // 가격 초기값
         );
