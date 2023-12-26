@@ -54,7 +54,7 @@ public class UserView {
         System.out.println("-----------회원목록-----------");
         userService.listAllUsers().forEach(user ->
                 System.out.println(user.getId() + ". " + "이메일: " + user.getEmail() + "  이름: " + user.getName()));
-        System.out.println("--------------------------");
+        System.out.println("----------------------------");
     }
 
     public void viewUserDetails(String email) {

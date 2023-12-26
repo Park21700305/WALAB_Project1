@@ -1,5 +1,6 @@
 package service;
 
+import domain.Menu;
 import domain.User;
 import domain.MenuOrder;
 
@@ -57,9 +58,22 @@ public class UserService {
     }
 
     // 주문한 메뉴 취소
-    public void removeOrder(User user, MenuOrder order) {
-        if (user != null && order != null) {
-            user.getMenuOrders().remove(order);
+    public void removeOrder(User user, MenuOrder orderToRemove) {
+        Menu menu = orderToRemove.getMenu();
+        int quantity = orderToRemove.getQuantity();
+
+        // 주문 목록에서 삭제
+        user.getMenuOrders().removeIf(order -> order.equals(orderToRemove));
+
+        // 총 가격 업데이트
+        int priceReduction = menu.getPrice() * quantity;
+        user.setTotalPrice(Math.max(user.getTotalPrice() - priceReduction, 0)); // 가격은 음수가 되지 않도록
+
+        // 만약 시간 관련 메뉴인 경우, 시간도 업데이트
+        if (menu.name().startsWith("TIME")) {
+            String timeString = menu.getMenuName();
+            int timeReduction = Integer.parseInt(timeString.replaceAll("[^0-9]", "")) * quantity;
+            user.setChargingTime(Math.max(user.getChargingTime() - timeReduction, 0)); // 시간은 음수가 되지 않도록
         }
     }
 }

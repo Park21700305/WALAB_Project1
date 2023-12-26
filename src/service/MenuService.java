@@ -4,9 +4,9 @@ import domain.Menu;
 import domain.MenuOrder;
 import domain.User;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class MenuService {
     private final List<Menu> menus = Arrays.asList(Menu.values());
@@ -29,6 +29,6 @@ public class MenuService {
     }
 
     public List<Menu> getMenus() {
-        return new ArrayList<>(menus); // 메뉴 목록 반환
+        return new ArrayList<>(menus);
     }
 }

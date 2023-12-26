@@ -9,7 +9,6 @@ public enum Menu {
     TIME2("2시간", 1800),
     TIME3("3시간", 2500);
 
-
     private final String menuName;
     private final Integer price;
 
@@ -21,7 +20,6 @@ public enum Menu {
     public String getMenuName() {
         return menuName;
     }
-
     public Integer getPrice() {
         return price;
     }
