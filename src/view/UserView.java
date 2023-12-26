@@ -50,7 +50,7 @@ public class UserView {
     public void listAllUsers() {
         System.out.println("-----------회원목록-----------");
         userService.listAllUsers().forEach(user ->
-                System.out.println("이메일: " + user.getEmail() + "  이름: " + user.getName()));
+                System.out.println(user.getId() + ". " + "이메일: " + user.getEmail() + "  이름: " + user.getName()));
         System.out.println("--------------------------");
     }
 
@@ -64,16 +64,16 @@ public class UserView {
             System.out.println("유저를 찾을 수 없습니다.");
         } else {
             System.out.println("-----------유저 정보-----------");
-            // 기존 정보 출력 로직
             System.out.println("이메일: " + user.getEmail());
             System.out.println("이름: " + user.getName());
             System.out.println("가입일: " + user.getRegDate());
             System.out.println("충전 시간: " + user.getChargingTime() + "시간");
             System.out.println("총 결제 금액: " + user.getTotalPrice() + "원");
-            System.out.println("-----------주문 내역-----------");
+            System.out.println("----------------------------");
+            System.out.println("---주문내역---");
             user.getMenuOrders().forEach(order ->
                     System.out.println(order.getMenu().getMenuName() + " x " + order.getQuantity()));
-            System.out.println("--------------------------");
+            System.out.println("------------");
         }
     }
 

@@ -25,10 +25,13 @@ public class MenuService {
 
         // 메뉴가 시간 관련 메뉴인 경우 시간을 추가
         if (menu.name().startsWith("TIME")) {
-            int additionalTime = Integer.parseInt(menu.getMenuName().split(" ")[0]) * quantity;
+            String timeString = menu.getMenuName();
+
+            int additionalTime = Integer.parseInt(timeString.replaceAll("[^0-9]", "")) * quantity;
             int newChargingTime = user.getChargingTime() + additionalTime;
             user.setChargingTime(newChargingTime);
         }
+
     }
 
     public List<Menu> getMenus() {

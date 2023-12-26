@@ -30,7 +30,7 @@
 
          while (true) {
              if (loggedInUser == null) {
-                 System.out.println("1. 회원가입 2. 로그인 3. 회원삭제 4. 회원목록 5. 메뉴보기 6. 시스템 종료");
+                 System.out.println("1.회원가입 2.로그인 3.회원삭제 4.회원목록 5.메뉴보기 6.시스템종료");
                  int choice = scanner.nextInt();
                  scanner.nextLine();
 
@@ -57,8 +57,7 @@
                          System.out.println("잘못된 입력입니다.");
                  }
              } else {
-                 // 로그인된 상태에서의 메뉴
-                 System.out.println("1. 메뉴선택 2. 내정보수정 3. 로그아웃 4. 주문내역보기 5. 주문삭제");
+                 System.out.println("1.메뉴선택 2.내정보수정 3.로그아웃 4.주문내역보기 5.주문삭제");
                  int choice = scanner.nextInt();
                  scanner.nextLine();
 
@@ -71,7 +70,7 @@
                          break;
                      case 3:
                          loggedInUser = null;
-                         System.out.println("로그아웃 되었습니다.");
+                         System.out.println("---로그아웃 되었습니다.---");
                          break;
                      case 4:
                          userView.viewUserDetails(loggedInUser.getEmail());

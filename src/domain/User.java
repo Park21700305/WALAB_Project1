@@ -3,32 +3,42 @@ package domain;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String email;
     private String password;
     private String name;
-    private LocalDateTime regDate;
+    private String regDate;
     private List<MenuOrder> menuOrders;
     private Integer chargingTime;
     private Integer totalPrice;
 
     @Builder
-    public User(String email, String password, String name) {
+    public User(Long id, String email, String password, String name) {
+        this.id = id;
         this.email = email;
         this.password = password;
         this.name = name;
-        this.regDate = LocalDateTime.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        this.regDate = LocalDateTime.now().format(formatter);
         this.menuOrders = new ArrayList<>();
         this.chargingTime = 0;
         this.totalPrice = 0;
     }
-
-
 }
