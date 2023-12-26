@@ -10,13 +10,25 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 public class User {
     private String email;
     private String password;
     private String name;
-    private LocalDateTime regDate = LocalDateTime.now();
-    private List<MenuOrder> menuOrders = new ArrayList<>();
-    private Integer chargingTime = 0;
-    private Integer totalPrice = 0;
+    private LocalDateTime regDate;
+    private List<MenuOrder> menuOrders;
+    private Integer chargingTime;
+    private Integer totalPrice;
+
+    @Builder
+    public User(String email, String password, String name) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.regDate = LocalDateTime.now();
+        this.menuOrders = new ArrayList<>();
+        this.chargingTime = 0;
+        this.totalPrice = 0;
+    }
+
+
 }

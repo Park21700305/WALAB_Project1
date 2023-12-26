@@ -1,9 +1,10 @@
 package service;
 
 import domain.User;
+import domain.MenuOrder;
+
 import java.util.List;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
 
 public class UserService {
     private final List<User> users = new ArrayList<>();
@@ -14,7 +15,6 @@ public class UserService {
             throw new IllegalStateException("이미 존재하는 이메일입니다.");
         }
 
-        // User 객체를 빌더 패턴을 사용하여 생성
         User newUser = User.builder()
                 .email(email)
                 .password(password)
@@ -36,7 +36,30 @@ public class UserService {
 
     // 유저 목록 조회
     public List<User> listAllUsers() {
-        return new ArrayList<>(users); // 혹은 Collections.unmodifiableList(users); 사용
+        return new ArrayList<>(users);
     }
 
+    // 사용자 찾기
+    public User findUser(String email, String password) {
+        return users.stream()
+                .filter(user -> user.getEmail().equals(email) && user.getPassword().equals(password))
+                .findFirst()
+                .orElse(null);
+    }
+
+    // 사용자 정보 수정
+    public void updateUser(User user, String email, String password, String name) {
+        if (user != null) {
+            if (email != null && !email.isEmpty()) user.setEmail(email);
+            if (password != null && !password.isEmpty()) user.setPassword(password);
+            if (name != null && !name.isEmpty()) user.setName(name);
+        }
+    }
+
+    // 주문 내역 삭제
+    public void removeOrder(User user, MenuOrder order) {
+        if (user != null && order != null) {
+            user.getMenuOrders().remove(order);
+        }
+    }
 }

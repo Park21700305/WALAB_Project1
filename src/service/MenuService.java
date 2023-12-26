@@ -4,11 +4,16 @@ import domain.Menu;
 import domain.MenuOrder;
 import domain.User;
 
-import java.util.Arrays;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MenuService {
     private final List<Menu> menus = Arrays.asList(Menu.values());
+
+    public MenuService() {
+        // 메뉴 서비스 초기화 (필요한 경우)
+    }
 
     public void addMenuOrderToUser(User user, Menu menu, int quantity) {
         MenuOrder menuOrder = new MenuOrder(menu, quantity);
@@ -26,5 +31,7 @@ public class MenuService {
         }
     }
 
-    // 기존 메소드들...
+    public List<Menu> getMenus() {
+        return new ArrayList<>(menus); // 메뉴 목록 반환
+    }
 }
