@@ -34,7 +34,7 @@ public class UserView {
         String name = scanner.nextLine();
 
         userService.createUser(id++, email, password, name);
-        System.out.println("유저가 생성되었습니다.");
+        System.out.println("회원가입 완료.");
         System.out.println("--------------------------");
     }
 

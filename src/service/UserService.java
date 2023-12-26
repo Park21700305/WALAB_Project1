@@ -1,11 +1,11 @@
 package service;
 
 import domain.Menu;
-import domain.User;
 import domain.MenuOrder;
+import domain.User;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserService {
     private final List<User> users = new ArrayList<>();
@@ -40,7 +40,7 @@ public class UserService {
         return new ArrayList<>(users);
     }
 
-    // 사용자 찾기
+    // 유저 찾기
     public User findUser(String email, String password) {
         return users.stream()
                 .filter(user -> user.getEmail().equals(email) && user.getPassword().equals(password))
@@ -48,7 +48,7 @@ public class UserService {
                 .orElse(null);
     }
 
-    // 사용자 정보 수정
+    // 유저 정보 수정
     public void updateUser(User user, String email, String password, String name) {
         if (user != null) {
             if (email != null && !email.isEmpty()) user.setEmail(email);
