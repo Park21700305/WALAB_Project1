@@ -56,7 +56,7 @@ public class UserService {
         }
     }
 
-    // 주문 내역 삭제
+    // 주문한 메뉴 취소
     public void removeOrder(User user, MenuOrder order) {
         if (user != null && order != null) {
             user.getMenuOrders().remove(order);
