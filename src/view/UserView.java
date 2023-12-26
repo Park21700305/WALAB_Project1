@@ -10,6 +10,9 @@ public class UserView {
     private final Scanner scanner;
     private final UserService userService;
 
+    private static Long id = 1L;
+
+
     public UserView(UserService userService, Scanner scanner) {
         this.userService = userService;
         this.scanner = scanner;
@@ -30,7 +33,7 @@ public class UserView {
         System.out.print("이름: ");
         String name = scanner.nextLine();
 
-        userService.createUser(email, password, name);
+        userService.createUser(id++, email, password, name);
         System.out.println("유저가 생성되었습니다.");
         System.out.println("--------------------------");
     }

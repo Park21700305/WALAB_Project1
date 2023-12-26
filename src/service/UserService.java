@@ -9,13 +9,13 @@ import java.util.ArrayList;
 public class UserService {
     private final List<User> users = new ArrayList<>();
 
-    // 유저 생성
-    public void createUser(String email, String password, String name) {
+    public void createUser(Long id, String email, String password, String name) {
         if (isEmailExist(email)) {
             throw new IllegalStateException("이미 존재하는 이메일입니다.");
         }
 
         User newUser = User.builder()
+                .id(id++)
                 .email(email)
                 .password(password)
                 .name(name)
