@@ -1,16 +1,15 @@
 package view;
 
-import domain.User;
 import domain.MenuOrder;
+import domain.User;
 import service.UserService;
 
 import java.util.Scanner;
 
 public class UserView {
+    private static Long id = 1L;
     private final Scanner scanner;
     private final UserService userService;
-
-    private static Long id = 1L;
 
 
     public UserView(UserService userService, Scanner scanner) {

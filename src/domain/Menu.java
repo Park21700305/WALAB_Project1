@@ -20,6 +20,7 @@ public enum Menu {
     public String getMenuName() {
         return menuName;
     }
+
     public Integer getPrice() {
         return price;
     }
