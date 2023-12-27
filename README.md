@@ -45,3 +45,11 @@ MVC패턴을 최대한 살리기 위해 Domain, Service, View로 나누어 구�
 ![스크린샷 2023-12-26 오후 8 27 20](https://github.com/Park21700305/WALAB_Project1/assets/93187535/18d845c6-4150-430c-a9de-6d0bdeb2cc47)
 ![스크린샷 2023-12-26 오후 8 27 38](https://github.com/Park21700305/WALAB_Project1/assets/93187535/eb28d728-7e93-49f8-b030-8011fe9732fc)
 ![스크린샷 2023-12-26 오후 8 27 45](https://github.com/Park21700305/WALAB_Project1/assets/93187535/0017d2b5-0c33-4e7e-a8f7-afd146b2f604)
+
+## 참고
+PC방 주문 시스템 "피카 라이브" 참고하였습니다. 
+프로그램은 등록된 PC방에서만 확인할 수 있어 스크린샷 첨부합니다.
+<img width="696" alt="스크린샷 2023-12-27 오후 1 39 56" src="https://github.com/Park21700305/WALAB_Project1/assets/93187535/28f38106-ded5-4942-b62d-bf204412b6aa">
+
+
+
